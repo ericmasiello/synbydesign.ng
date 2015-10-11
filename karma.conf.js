@@ -8,7 +8,8 @@ module.exports = function(config){
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/components/**/*.js',
-      'app/view*/**/*.js'
+      'app/view*/**/*.js',
+      'app/tpl/*.html'
     ],
 
     autoWatch : true,
@@ -17,11 +18,17 @@ module.exports = function(config){
 
     browsers : ['Chrome'],
 
+    // generate js files from html templates
+    preprocessors: {
+      'app/tpl/*.html': 'ng-html2js'
+    },
+
     plugins : [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            'karma-ng-html2js-preprocessor'
             ],
 
     junitReporter : {

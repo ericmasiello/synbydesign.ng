@@ -17,7 +17,7 @@ angular.module('myApp.portfolio', [])
 
     return {
       controller: 'portfolioItemCtrl',
-      templateUrl: 'components/portfolio-item/portfolio-item.html',
+      templateUrl: 'tpl/portfolio-item.html',
       link: function(scope, elm, attrs){
 
         //elm.on('click', function(){
