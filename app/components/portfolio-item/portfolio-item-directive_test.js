@@ -1,7 +1,7 @@
 'use strict';
 
 describe('myApp.portfolio module', function() {
-  beforeEach(module('myApp.portfolio'));
+  beforeEach(module('myApp.portfolio', 'app/tpl/portfolio-item.html'));
 
   describe('myApp.portfolio item directive', function() {
 
