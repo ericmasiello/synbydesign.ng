@@ -1,7 +1,7 @@
 'use strict';
 
 describe('myApp.portfolio module', function() {
-  beforeEach(module('myApp.portfolio', 'tpl/portfolio-item.html'));
+  beforeEach(module('myApp.portfolio', 'components/portfolio-item/portfolio-item.html'));
 
   describe('myApp.portfolio item directive', function() {
 
@@ -14,12 +14,12 @@ describe('myApp.portfolio module', function() {
         var element = $compile('<portfolio-item></portfolio-item>')($rootScope);
         $rootScope.$digest();
 
-        expect(element.text()).toEqual('2');
+        expect(element.text()).toEqual('What\'s up dude? 2');
 
         $rootScope.clickIt();
         $rootScope.$digest();
 
-        expect(element.text()).toEqual('clicked the function');
+        expect(element.text()).toEqual('What\'s up dude? clicked the function');
       });
     });
 

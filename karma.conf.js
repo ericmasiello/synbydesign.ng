@@ -9,7 +9,7 @@ module.exports = function(config){
       'bower_components/angular-mocks/angular-mocks.js',
       'components/**/*.js',
       'view*/**/*.js',
-      'tpl/*.html'
+      '**/*.html'
     ],
 
     autoWatch : true,
@@ -20,7 +20,7 @@ module.exports = function(config){
 
     // generate js files from html templates
     preprocessors: {
-      'tpl/*.html': 'ng-html2js'
+      '**/*.html': 'ng-html2js'
     },
 
     plugins : [
