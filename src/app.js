@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.css';
+import 'synbydesign.design/src/styles/main.scss';
 
 import angular from 'angular';
 import uirouter from 'angular-ui-router';

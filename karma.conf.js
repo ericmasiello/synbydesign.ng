@@ -32,11 +32,11 @@ module.exports = function karmaConfig (config) {
     },
 
     browsers: [
-      // Run tests using PhantomJS
-      'PhantomJS'
+      // Run tests using PhantomJS, use Chrome for debugging
+      'Chrome' //FIXME set to PhantomJS
     ],
 
-    singleRun: true,
+    singleRun: false, //FIXME: set to true normally
 
     // Configure code coverage reporter
     coverageReporter: {
