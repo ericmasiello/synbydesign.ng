@@ -319,9 +319,15 @@
     </symbol>
   </defs>
 </svg>
-<main id="app">
-	<h1>Syn By Design</h1>
+<main aria-atomic="true" aria-live="polite" aria-busy="false" > <!-- FIXME: update aria busy -->
+	<!-- FIXME: Add loading status bar -->
+	<Navigation></Navigation>
 	<ui-view></ui-view>
+	<div className="text-center mtl">
+		<!-- FIXME: Back to to top link -->
+		<a href="#">Back to top</a>
+	</div>
+
 </main>
 
 <noscript>
