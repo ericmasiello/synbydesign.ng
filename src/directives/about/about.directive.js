@@ -1,12 +1,24 @@
 import angular from 'angular';
 
+export default class AboutController {
+  constructor($sce) {
+
+    this.content = $sce.trustAsHtml(this.srcContent);
+  }
+}
+
+AboutController.$inject = ['$sce'];
+
 function about() {
   return {
     restrict: 'E',
     scope: {
-      name: '='
+      srcContent: '@'
     },
-    template: require('./about.html')
+    bindToController: true,
+    template: require('./about.html'),
+    controllerAs: 'about',
+    controller: AboutController
   }
 }
 
