@@ -1,10 +1,10 @@
 export default class HomeController {
-  constructor(randomNames, aboutContent, $sce) {
+  constructor(randomNames, aboutContent) {
     this.random = randomNames;
     this.name = 'World';
     this.model = {
-      about: $sce.trustAsHtml(aboutContent.content)
-    }
+      about: aboutContent.content
+    };
   }
 
   changeName() {
@@ -15,4 +15,4 @@ export default class HomeController {
   }
 }
 
-HomeController.$inject = ['randomNames', 'aboutContent', '$sce'];
+HomeController.$inject = ['randomNames', 'aboutContent'];
