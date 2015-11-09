@@ -8,10 +8,10 @@ export default function routes($stateProvider) {
       controller: 'HomeController',
       controllerAs: 'home',
       resolve: {
-        aboutContent: function(aboutModel){
+        aboutContent: function(AboutModel){
           "use strict";
 
-          return aboutModel.load();
+          return AboutModel.load();
         }
       }
     });
