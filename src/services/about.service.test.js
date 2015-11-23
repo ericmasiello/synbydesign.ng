@@ -1,5 +1,4 @@
-import aboutServices from './about.service'
-//import app from '../app';
+import aboutServices from './about.service.js'
 
 describe('Services: About Model', function () {
   let service;

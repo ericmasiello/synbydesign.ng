@@ -12,6 +12,11 @@ export default function routes($stateProvider) {
           "use strict";
 
           return AboutModel.load();
+        },
+        portfolioContent: function(PortfolioModel){
+          "use strict";
+
+          return PortfolioModel.load();
         }
       }
     });
