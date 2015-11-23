@@ -6,7 +6,7 @@ import uirouter from 'angular-ui-router';
 import routing from './app.config';
 import home from './features/home';
 import detail from './features/detail';
-import navigation from './directives/navigation/navigation.directive.js';
+import masthead from './directives/masthead/masthead.directive.js';
 
-angular.module('app', [uirouter, home, detail, navigation])
+angular.module('app', [uirouter, home, detail, masthead])
   .config(routing);
