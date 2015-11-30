@@ -9,4 +9,21 @@ import detail from './features/detail';
 import masthead from './directives/masthead/masthead.directive.js';
 
 angular.module('app', [uirouter, home, detail, masthead])
-  .config(routing);
+  .config(routing)
+  .run(function($rootScope){
+    "use strict";
+
+    $rootScope
+      .$on('$stateChangeStart',
+      function(event, toState, toParams, fromState, fromParams){
+
+        $rootScope.$emit('app-is-loading');
+      });
+
+    $rootScope
+      .$on('$stateChangeSuccess',
+      function(event, toState, toParams, fromState, fromParams){
+
+        $rootScope.$emit('app-done-loading');
+      });
+  });

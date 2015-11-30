@@ -12,10 +12,10 @@ AboutController.$inject = ['$sce'];
 function about() {
   return {
     restrict: 'E',
-    scope: {
+    scope: {},
+    bindToController: {
       srcContent: '@'
     },
-    bindToController: true,
     template: require('./about.html'),
     controllerAs: 'about',
     controller: AboutController
