@@ -3,7 +3,10 @@ export default class HomeController {
     this.random = randomNames;
     this.name = 'World';
     this.model = {
-      about: aboutContent.content
+      about: aboutContent.content,
+      webPortfolio: portfolioContent.web,
+      otherPortfolio: portfolioContent.other,
+      designPortfolio: portfolioContent.design
     };
   }
 

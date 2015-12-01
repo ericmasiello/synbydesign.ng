@@ -1,1 +1,14 @@
-<p>Portfolio Item</p>
+<div class="portfolio__item">
+  <span class="h4  portfolio__title">
+    <span class="portfolio__title__text">{{item.detail.title}}</span>
+  </span>
+  <a ui-sref="detail"
+     aria-label="View detailed image of {{item.detail.title}}">
+    <img class="portfolio__img" ng-src="{{item.detail.featured_image}}" alt="Preview image of {{item.detail.title}}" />
+  </a>
+</div>
+<!--
+<Skills title={this.props.item.title}
+        classNames="skills  small"
+        skills={this.props.item.terms && this.props.item.terms.post_tag ? this.props.item.terms.post_tag : []} />
+    -->

@@ -1,15 +1,28 @@
 import angular from 'angular';
 
-function portfolioItem() {
+export default class PortfolioItemController {
+  constructor() {
+    "use strict";
+  }
+}
+
+function PortfolioItem() {
   return {
     restrict: 'E',
-    scope: {
-      name: '='
+    scope: {},
+    bindToController: {
+      detail: '='
     },
-    template: require('./portfolioItem.html')
+    controllerAs: 'item',
+    controller: PortfolioItemController,
+    template: require('./portfolioItem.html'),
+    link: function(scope){
+      "use strict";
+      //debugger;
+    }
   }
 }
 
 export default angular.module('directives.portfolioItem', [])
-  .directive('portfolioItem', portfolioItem)
+  .directive('portfolioItem', PortfolioItem)
   .name;

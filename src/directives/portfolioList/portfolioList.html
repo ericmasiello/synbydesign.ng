@@ -1,4 +1,10 @@
-<p>Portfolio List Content</p>
-<Portfolio-Item></Portfolio-Item>
-<Portfolio-Item></Portfolio-Item>
-<Portfolio-Item></Portfolio-Item>
+<div ng-if="portfolioList.portfolioItems.length">
+  <h1 class="h3  text-center">{{portfolioList.title}}</h1>
+  <ul class="portfolio  row  center-xs  start-sm">
+    <li class="col-sm-6  col-md-4"
+        role="presentation"
+        ng-repeat="item in portfolioList.portfolioItems">
+      <Portfolio-Item detail="item"></Portfolio-Item>
+    </li>
+  </ul>
+</div>

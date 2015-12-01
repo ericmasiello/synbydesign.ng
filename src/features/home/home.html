@@ -1,7 +1,17 @@
 <About src-content="{{home.model.about}}"></About>
-<Portfolio-List></Portfolio-List>
+<Portfolio-List
+    title="Web Design &amp; Development"
+    portfolio-items="home.model.webPortfolio">
+</Portfolio-List>
+<Portfolio-List
+    title="Illustration, Logos, &amp; Flyers"
+    portfolio-items="home.model.designPortfolio">
+</Portfolio-List>
+<Portfolio-List
+    title="Other"
+    portfolio-items="home.model.otherPortfolio">
+</Portfolio-List>
 
-<button class="btn btn-primary" ng-click="home.changeName()">Change</button>
-<button class="btn btn-danger" ng-click="home.randomName()">Random</button>
 
+Demo...
 <a ui-sref="detail">Detail Page</a>

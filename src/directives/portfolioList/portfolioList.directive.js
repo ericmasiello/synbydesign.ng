@@ -1,16 +1,26 @@
 import angular from 'angular';
-import portfolioItem from '../portfolioItem/portfolioItem.directive';
+import PortfolioItem from '../portfolioItem/portfolioItem.directive';
 
-function portfolioList() {
+export default class PortfolioListController {
+  constructor() {
+    "use strict";
+  }
+}
+
+function PortfolioList() {
   return {
     restrict: 'E',
-    scope: {
-      name: '='
+    scope: {},
+    bindToController: {
+      title: '@',
+      portfolioItems: '='
     },
+    controllerAs: 'portfolioList',
+    controller: PortfolioListController,
     template: require('./portfolioList.html')
   }
 }
 
-export default angular.module('directives.portfolioList', [portfolioItem])
-  .directive('portfolioList', portfolioList)
+export default angular.module('directives.portfolioList', [PortfolioItem])
+  .directive('portfolioList', PortfolioList)
   .name;
