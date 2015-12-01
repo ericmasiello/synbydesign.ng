@@ -1,5 +1,5 @@
 export default class HomeController {
-  constructor(randomNames, aboutContent) {
+  constructor(randomNames, aboutContent, portfolioContent) {
     this.random = randomNames;
     this.name = 'World';
     this.model = {
@@ -15,4 +15,4 @@ export default class HomeController {
   }
 }
 
-HomeController.$inject = ['randomNames', 'aboutContent'];
+HomeController.$inject = ['randomNames', 'aboutContent', 'portfolioContent'];

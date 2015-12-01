@@ -13,10 +13,20 @@ export default function routes($stateProvider) {
 
           return AboutModel.load();
         },
-        portfolioContent: function(PortfolioModel){
+        portfolioContent: function($q, PortfolioModel, PortfolioHelperFns){
           "use strict";
 
-          return PortfolioModel.load();
+          return PortfolioModel.load().then(function(list){
+            const deferred = $q.defer();
+
+            deferred.resolve({
+              web: PortfolioHelperFns.simplifyModelForDisplay(PortfolioHelperFns.filterByWeb(list)),
+              design: PortfolioHelperFns.simplifyModelForDisplay(PortfolioHelperFns.filterByDesign(list)),
+              other: PortfolioHelperFns.simplifyModelForDisplay(PortfolioHelperFns.filterByOther(list))
+            });
+
+            return deferred.promise;
+          });
         }
       }
     });
