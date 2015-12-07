@@ -1,5 +1,13 @@
 export default class DetailController {
-  constructor() {
-    this.test = 'testing';
+  constructor(portfolioDetail) {
+    if( portfolioDetail.length == 0 ){
+      return;
+    }
+
+    this.model = {
+      detail: portfolioDetail[0]
+    }
   }
 }
+
+DetailController.$inject = ['portfolioDetail'];
