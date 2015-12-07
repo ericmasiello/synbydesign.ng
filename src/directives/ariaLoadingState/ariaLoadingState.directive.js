@@ -16,7 +16,7 @@ class AriaLoadingStateController {
   }
 }
 
-AriaLoadingStateController.$inject = ['$element', '$rootScope']
+AriaLoadingStateController.$inject = ['$element', '$rootScope'];
 
 function ariaLoadingState() {
   return {
