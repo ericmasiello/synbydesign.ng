@@ -1,12 +1,12 @@
 import angular from 'angular';
 import routesPaths from './baseRoutePaths.js';
+import extractor from 'extract-image-props-from-html-string';
 
 let hasLoadedAll = false;
 
 class PortfolioModel {
   constructor($http, $q, RoutesPaths, PortfolioHelperFns) {
     this.model = {};
-
     this.$http = $http;
     this.$q = $q;
     this.RoutesPaths = RoutesPaths;
@@ -83,6 +83,10 @@ const PortfolioHelperFns = function(){
         return {
           ID,
           content,
+          full_size_image: extractor.getSource(content),
+          alt_text: extractor.getAltText(content),
+          max_width: extractor.getWidth(content),
+          max_height: extractor.getHeight(content),
           featured_image: featured_image.source,
           slug,
           title,

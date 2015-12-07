@@ -6,9 +6,10 @@ import uirouter from 'angular-ui-router';
 import routing from './app.config';
 import home from './features/home';
 import detail from './features/detail';
-import masthead from './directives/masthead/masthead.directive.js';
+import masthead from './directives/masthead/masthead.directive';
+import ariaLoadingState from './directives/ariaLoadingState/ariaLoadingState.directive'
 
-angular.module('app', [uirouter, home, detail, masthead])
+angular.module('app', [uirouter, home, detail, masthead, ariaLoadingState])
   .config(routing)
   .run(function($rootScope){
     "use strict";

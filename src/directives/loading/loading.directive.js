@@ -16,7 +16,9 @@ export default class LoadingController {
 
     }.bind(this));
   }
-}
+};
+
+LoadingController.$inject = ['$rootScope'];
 
 function loading() {
   return {
@@ -32,5 +34,3 @@ function loading() {
 export default angular.module('directives.loading', [])
   .directive('loading', loading)
   .name;
-
-LoadingController.$inject = ['$rootScope'];

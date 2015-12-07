@@ -5,7 +5,9 @@ class PortfolioItemController {
   constructor() {
     "use strict";
 
-    this.showLink = typeof this.showLink === 'boolean' ? this.showLink : this.showLink === 'false' ? false : true;
+    if( typeof this.detail.alt_text != 'string' || this.detail.alt_text.length == 0 ){
+      this.detail.alt_text = this.detail.title;
+    }
   }
 }
 

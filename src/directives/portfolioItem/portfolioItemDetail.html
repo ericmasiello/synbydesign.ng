@@ -4,8 +4,8 @@
 <div class="portfolio__item portfolio__item--full {{item.classNames}}">
   <img class="portfolio__img  portfolio__img--detail"
        aria-label="{{item.detail.title}} detailed view"
-       ng-src="{{item.detail.featured_image}}"
-       alt="Preview image of {{item.detail.title}}"/>
+       ng-src="{{item.detail.full_size_image}}"
+       alt="{{item.detail.alt_text}}"/>
 </div>
 <Skills title="{{item.detail.title}}"
         items="item.detail.post_tag"
