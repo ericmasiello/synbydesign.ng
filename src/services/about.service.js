@@ -11,7 +11,7 @@ class AboutModel {
   }
 
   load() {
-    "use strict";
+    'use strict';
     const deferred = this.$q.defer();
 
     this.$http.get(`${this.routePaths.root}/pages/about`).then((data)=>{

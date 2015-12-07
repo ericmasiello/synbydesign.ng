@@ -14,7 +14,7 @@ class PortfolioModel {
   }
 
   load() {
-    "use strict";
+    'use strict';
     const deferred = this.$q.defer();
 
     if( hasLoadedAll ){
@@ -32,7 +32,7 @@ class PortfolioModel {
   }
 
   loadDetail(id){
-    "use strict";
+    'use strict';
 
     const deferred = this.$q.defer();
 
@@ -51,7 +51,7 @@ class PortfolioModel {
 }
 
 const PortfolioHelperFns = function(){
-  "use strict";
+  'use strict';
 
   var containsCategory = function containsCategory(categories){
     return (function(item){
@@ -63,17 +63,17 @@ const PortfolioHelperFns = function(){
 
   return {
     filterByWeb(list){
-      "use strict";
+      'use strict';
       return list.filter(containsCategory(['web']));
     },
 
     filterByDesign(list){
-      "use strict";
+      'use strict';
       return list.filter(containsCategory(['logos','illustration','flyers','business-cards']));
     },
 
     filterByOther(list){
-      "use strict";
+      'use strict';
       return list.filter(containsCategory(['other']));
     },
 

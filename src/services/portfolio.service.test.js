@@ -3,6 +3,7 @@ import portfolioServices from './portfolio.service.js'
 describe('Services: Portfolio Model', function () {
   let PortfolioHelperFns;
 
+  /*eslint-disable */
   const testData = [{
     "ID": 219,
     "title": "EXBC @ BNG (Harry R4NS0M) web promo",
@@ -1740,6 +1741,7 @@ describe('Services: Portfolio Model', function () {
       }]
     }
   }];
+  /*eslint-enable */
 
   beforeEach(angular.mock.module(portfolioServices));
   beforeEach(inject((_PortfolioHelperFns_) => {
@@ -1747,7 +1749,7 @@ describe('Services: Portfolio Model', function () {
   }));
 
   afterEach(()=> {
-    "use strict";
+    'use strict';
     PortfolioHelperFns = undefined;
   });
 
@@ -1760,26 +1762,26 @@ describe('Services: Portfolio Model', function () {
   });
 
   it('should filter by web', () => {
-    "use strict";
+    'use strict';
 
     expect(PortfolioHelperFns.filterByWeb(testData).length).toBe(1);
 
   });
 
   it('should filter by design', () => {
-    "use strict";
+    'use strict';
 
     expect(PortfolioHelperFns.filterByDesign(testData).length).toBe(8);
   });
 
   it('should filter by other', () => {
-    "use strict";
+    'use strict';
 
     expect(PortfolioHelperFns.filterByOther(testData).length).toBe(1);
   });
 
   it('should simplify the model for display', () => {
-    "use strict";
+    'use strict';
 
     const results = PortfolioHelperFns.simplifyModelForDisplay(testData);
     const anarchostar = results[3];

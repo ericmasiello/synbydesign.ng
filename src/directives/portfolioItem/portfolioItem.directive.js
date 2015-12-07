@@ -3,7 +3,7 @@ import skills from '../skills/skills.directive';
 
 class PortfolioItemController {
   constructor() {
-    "use strict";
+    'use strict';
 
     if( typeof this.detail.alt_text != 'string' || this.detail.alt_text.length == 0 ){
       this.detail.alt_text = this.detail.title;
@@ -31,7 +31,7 @@ function PortfolioItem() {
       return require('./portfolioItem.html');
     },
     link: function(scope){
-      "use strict";
+      'use strict';
       //debugger;
     }
   }

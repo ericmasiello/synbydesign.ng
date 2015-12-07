@@ -12,7 +12,7 @@ import ariaLoadingState from './directives/ariaLoadingState/ariaLoadingState.dir
 angular.module('app', [uirouter, home, detail, masthead, ariaLoadingState])
   .config(routing)
   .run(function($rootScope){
-    "use strict";
+    'use strict';
 
     $rootScope
       .$on('$stateChangeStart',

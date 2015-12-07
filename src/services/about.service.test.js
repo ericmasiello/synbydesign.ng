@@ -28,7 +28,7 @@
 //  }));
 //
 //  afterEach(()=>{
-//    "use strict";
+//    'use strict';
 //    service = undefined;
 //    httpBackend = undefined;
 //  });

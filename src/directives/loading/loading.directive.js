@@ -2,7 +2,7 @@ import angular from 'angular';
 
 export default class LoadingController {
   constructor($rootScope) {
-    "use strict";
+    'use strict';
 
     $rootScope.$on('app-is-loading', function(){
 

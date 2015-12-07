@@ -9,7 +9,7 @@ export default function routes($stateProvider) {
       controllerAs: 'detail',
       resolve: {
         portfolioDetail: function($q, $stateParams, PortfolioModel){
-          "use strict";
+          'use strict';
 
           return PortfolioModel.loadDetail(parseInt($stateParams.id));
         }

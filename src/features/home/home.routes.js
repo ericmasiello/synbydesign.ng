@@ -9,12 +9,12 @@ export default function routes($stateProvider) {
       controllerAs: 'home',
       resolve: {
         aboutContent: function(AboutModel){
-          "use strict";
+          'use strict';
 
           return AboutModel.load();
         },
         portfolioContent: function($q, PortfolioModel, PortfolioHelperFns){
-          "use strict";
+          'use strict';
 
           return PortfolioModel.load().then(function(list){
             const deferred = $q.defer();

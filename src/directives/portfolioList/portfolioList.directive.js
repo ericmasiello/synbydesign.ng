@@ -3,7 +3,7 @@ import PortfolioItem from '../portfolioItem/portfolioItem.directive';
 
 export default class PortfolioListController {
   constructor() {
-    "use strict";
+    'use strict';
   }
 }
 
