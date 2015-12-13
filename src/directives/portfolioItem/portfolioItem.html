@@ -1,0 +1,15 @@
+<div class="portfolio__item {{item.classNames}}">
+  <span class="h4  portfolio__title">
+    <span class="portfolio__title__text">{{item.detail.title}}</span>
+  </span>
+  <a ui-sref="detail({id: item.detail.ID})"
+     aria-label="View detailed image of {{item.detail.title}}">
+    <img class="portfolio__img {{item.imgClassNames}}"
+         ng-src="{{item.detail.featured_image}}"
+         alt="Preview image of {{item.detail.title}}" />
+  </a>
+</div>
+<Skills title="{{item.detail.title}}"
+        items="item.detail.post_tag"
+        class-names="skills small"
+        bullet-class-names="{{item.bulletClassNames}}"></Skills>
