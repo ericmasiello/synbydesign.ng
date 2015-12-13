@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-export default class LoadingController {
+class LoadingController {
   constructor($rootScope) {
     'use strict';
 
@@ -16,7 +16,7 @@ export default class LoadingController {
 
     }.bind(this));
   }
-};
+}
 
 LoadingController.$inject = ['$rootScope'];
 

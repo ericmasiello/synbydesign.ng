@@ -1,13 +1,13 @@
 <nav>
   <ul class="row  flex-center  middle-xs  masthead__nav">
     <li role="presentation" class="col-xs-12  col-sm  col-md-5  default-sm  masthead__logo">
-      <logo></logo>
+      <logo logo-id="{{nav.logoId}}"></logo>
     </li>
     <li role="presentation" class="col-xs-12  col-sm  masthead__nav__about">
-      <a href="#" class="pill">About</a>
+      <a href="#" class="pill" ng-click="nav.scrollTo('about', $event)">About</a>
     </li>
     <li role="presentation" class="col-xs-12  col-sm  masthead__nav__portfolio">
-      <a href="#" class="pill">Portfolio</a>
+      <a href="#" class="pill" ng-click="nav.scrollTo('portfolio', $event)">Portfolio</a>
     </li>
     <li role="presentation" class="col-xs-12  col-sm  masthead__nav__linked-in">
       <a href="https://www.linkedin.com/in/ericmasiello" class="pill">LinkedIn</a>

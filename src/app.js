@@ -7,10 +7,15 @@ import routing from './app.config';
 import home from './features/home';
 import detail from './features/detail';
 import masthead from './directives/masthead/masthead.directive';
-import ariaLoadingState from './directives/ariaLoadingState/ariaLoadingState.directive'
+import ariaLoadingState from './directives/ariaLoadingState/ariaLoadingState.directive';
+import backToTop from './directives/backToTop/backToTop.directive';
+import synSvg from './directives/synSvg/synSvg.directive';
 
-angular.module('app', [uirouter, home, detail, masthead, ariaLoadingState])
+import appCtrl from './features/app/app.controller';
+
+angular.module('app', [uirouter, home, detail, masthead, ariaLoadingState, backToTop, synSvg])
   .config(routing)
+  .controller('appCtrl', appCtrl)
   .run(function($rootScope){
     'use strict';
 
