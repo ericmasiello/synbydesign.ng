@@ -1,9 +1,10 @@
 {
-  "name": "angular-webpack-workflow",
+  "name": "synbydesign.ng",
   "version": "1.0.0",
-  "description": "A workflow for Angular made with Webpack",
+  "description": "Syn By Design portfolio built with Angular 1.x",
   "scripts": {
-    "build": "webpack --config webpack.build.js --bail -p",
+    "build": "rm -rf ./dist && webpack --config webpack.build.js --bail",
+    "serve": "serve ./dist",
     "start": "node node_modules/.bin/webpack-dev-server --history-api-fallback --hot --inline --progress",
     "test": "karma start",
     "test:live": "karma start --auto-watch --no-single-run",
@@ -20,7 +21,7 @@
   },
   "homepage": "https://github.com/Foxandxss/angular-webpack-workflow",
   "dependencies": {
-    "angular": "^1.3.16",
+    "angular": "^1.4.7",
     "angular-ui-router": "^0.2.15",
     "autoprefixer-core": "^5.2.0",
     "babel-core": "^5.5.8",
@@ -28,10 +29,10 @@
     "babel-runtime": "^5.5.8",
     "bootstrap": "^3.3.5",
     "css-loader": "^0.14.5",
-    "extract-image-props-from-html-string": "^0.1.1",
+    "extract-image-props-from-html-string": "^0.2.2",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
-    "html-webpack-plugin": "^1.5.2",
+    "html-webpack-plugin": "1.5.2",
     "node-libs-browser": "^0.5.2",
     "postcss-loader": "^0.4.4",
     "raw-loader": "^0.5.1",
@@ -42,6 +43,8 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.4.1",
+    "babel-eslint": "^4.1.3",
+    "eslint": "^1.8.0",
     "isparta-instrumenter-loader": "^0.2.1",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.9",
@@ -52,11 +55,11 @@
     "karma-sourcemap-loader": "^0.3.5",
     "karma-spec-reporter": "0.0.19",
     "karma-webpack": "^1.5.1",
+    "ng-annotate-loader": "0.0.10",
+    "ng-annotate-webpack-plugin": "^0.1.2",
     "node-sass": "^3.4.1",
     "null-loader": "^0.1.1",
     "phantomjs": "^1.9.17",
-    "sass-loader": "^3.1.1",
-    "babel-eslint": "^4.1.3",
-    "eslint": "^1.8.0"
+    "sass-loader": "^3.1.1"
   }
 }

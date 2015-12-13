@@ -11,25 +11,27 @@ import ariaLoadingState from './directives/ariaLoadingState/ariaLoadingState.dir
 import backToTop from './directives/backToTop/backToTop.directive';
 import synSvg from './directives/synSvg/synSvg.directive';
 
-import appCtrl from './features/app/app.controller';
+
+function appRun($rootScope){
+  'use strict';
+
+  $rootScope
+    .$on('$stateChangeStart',
+    function(event, toState, toParams, fromState, fromParams){
+
+      $rootScope.$emit('app-is-loading');
+    });
+
+  $rootScope
+    .$on('$stateChangeSuccess',
+    function(event, toState, toParams, fromState, fromParams){
+
+      $rootScope.$emit('app-done-loading');
+    });
+};
+
+appRun.$inject = ['$rootScope'];
 
 angular.module('app', [uirouter, home, detail, masthead, ariaLoadingState, backToTop, synSvg])
   .config(routing)
-  .controller('appCtrl', appCtrl)
-  .run(function($rootScope){
-    'use strict';
-
-    $rootScope
-      .$on('$stateChangeStart',
-      function(event, toState, toParams, fromState, fromParams){
-
-        $rootScope.$emit('app-is-loading');
-      });
-
-    $rootScope
-      .$on('$stateChangeSuccess',
-      function(event, toState, toParams, fromState, fromParams){
-
-        $rootScope.$emit('app-done-loading');
-      });
-  });
+  .run(appRun);

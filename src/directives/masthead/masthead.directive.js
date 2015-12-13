@@ -13,7 +13,8 @@ function masthead() {
     scope: {},
     bindToController: {
       mastheadId: '@',
-      logoId: '@'
+      logoId: '@',
+      showNav: '='
     },
     controller: MastheadCtrl,
     controllerAs: 'masthead',

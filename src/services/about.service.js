@@ -1,20 +1,19 @@
 import angular from 'angular';
-import routePaths from './baseRoutePaths.js';
+import appConsts from '../consts/appConsts';
 
 class AboutModel {
-  constructor($http, $q, routesPaths) {
+  constructor($http, $q) {
     this.model = {};
 
     this.$http = $http;
     this.$q = $q;
-    this.routePaths = routesPaths;
   }
 
   load() {
     'use strict';
     const deferred = this.$q.defer();
 
-    this.$http.get(`${this.routePaths.root}/pages/about`).then((data)=>{
+    this.$http.get(`${appConsts.SERVER}/pages/about`).then((data)=>{
       this.model.content = data.data.content;
       deferred.resolve(this.model);
     });
@@ -25,7 +24,6 @@ class AboutModel {
 
 export default angular.module('services.about', [])
   .service('AboutModel', AboutModel)
-  .constant('routesPaths', routePaths)
   .name;
 
-AboutModel.$inject = ['$http', '$q', 'routesPaths'];
+AboutModel.$inject = ['$http', '$q'];

@@ -5,6 +5,7 @@ class NavigationCtrl {
   constructor($anchorScroll){
     'use strict';
     this.$anchorScroll = $anchorScroll;
+    this.showNav = this.showNav === false ? false : true;
   }
   scrollTo(location, e){
     'use strict';
@@ -22,7 +23,8 @@ function navigation() {
   return {
     scope: {},
     bindToController: {
-      logoId: '@'
+      logoId: '@',
+      showNav: '='
     },
     controller: NavigationCtrl,
     controllerAs: 'nav',

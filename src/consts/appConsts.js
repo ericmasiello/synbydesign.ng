@@ -7,5 +7,5 @@ export default {
     portfolioList: 'portfolioList',
     portfolioDetail: 'portfolioDetail'
   },
-  SERVER: 'http://www.synbydesign.com/wp/wp-json'
+  SERVER: 'http://synbydesign.com/wp/wp-json'
 }

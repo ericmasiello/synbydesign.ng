@@ -1,3 +1,5 @@
+import appConsts from '../../consts/appConsts.js';
+
 export default class DetailController {
   constructor(portfolioDetail) {
     if( portfolioDetail.length == 0 ){
@@ -5,6 +7,9 @@ export default class DetailController {
     }
 
     this.model = {
+      showNav: false,
+      mastheadId: appConsts.UIID.masthead,
+      logoId: appConsts.UIID.logo,
       detail: portfolioDetail[0]
     }
   }

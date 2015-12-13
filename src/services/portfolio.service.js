@@ -1,15 +1,14 @@
 import angular from 'angular';
-import routesPaths from './baseRoutePaths.js';
 import extractor from 'extract-image-props-from-html-string';
+import appConsts from '../consts/appConsts';
 
 let hasLoadedAll = false;
 
 class PortfolioModel {
-  constructor($http, $q, RoutesPaths, PortfolioHelperFns) {
+  constructor($http, $q, PortfolioHelperFns) {
     this.model = {};
     this.$http = $http;
     this.$q = $q;
-    this.RoutesPaths = RoutesPaths;
     this.PortfolioHelperFns = PortfolioHelperFns;
   }
 
@@ -22,7 +21,7 @@ class PortfolioModel {
       return deferred.promise;
     }
 
-    this.$http.get(`${this.RoutesPaths.root}/posts/?filter[category_name]=web,other,logos,illustration,flyers,business-cards`).then((data)=>{
+    this.$http.get(`${appConsts.SERVER}/posts/?filter[category_name]=web,other,logos,illustration,flyers,business-cards`).then((data)=>{
       this.model.list = data.data;
       hasLoadedAll = true;
       deferred.resolve(this.model.list);
@@ -42,7 +41,7 @@ class PortfolioModel {
       return deferred.promise;
     }
 
-    this.$http.get(`${this.RoutesPaths.root}/posts/${id}`).then((data)=>{
+    this.$http.get(`${appConsts.SERVER}/posts/${id}`).then((data)=>{
       deferred.resolve(this.PortfolioHelperFns.simplifyModelForDisplay([data.data]));
     });
 
@@ -102,7 +101,6 @@ const PortfolioHelperFns = function(){
 export default angular.module('services.portfolio', [])
   .service('PortfolioModel', PortfolioModel)
   .factory('PortfolioHelperFns', PortfolioHelperFns)
-  .constant('RoutesPaths', routesPaths)
   .name;
 
-PortfolioModel.$inject = ['$http', '$q', 'RoutesPaths', 'PortfolioHelperFns'];
+PortfolioModel.$inject = ['$http', '$q', 'PortfolioHelperFns'];
