@@ -1,7 +1,5 @@
-logs/*
-!.gitkeep
-node_modules/
-bower_components/
-tmp
+node_modules
+dist
+build
+.idea/
 .DS_Store
-.idea

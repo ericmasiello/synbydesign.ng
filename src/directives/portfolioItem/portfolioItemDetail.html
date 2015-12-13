@@ -1,0 +1,13 @@
+<h1 class="mtn  text-center">
+    <span class="portfolio__title__text">{{item.detail.title}}</span>
+</h1>
+<div class="portfolio__item portfolio__item--full {{item.classNames}}">
+  <img class="portfolio__img  portfolio__img--detail"
+       aria-label="{{item.detail.title}} detailed view"
+       ng-src="{{item.detail.full_size_image}}"
+       alt="{{item.detail.alt_text}}"/>
+</div>
+<Skills title="{{item.detail.title}}"
+        items="item.detail.post_tag"
+        class-names="h4  list-unstyled  text-center"
+        bullet-class-names="hide"></Skills>
