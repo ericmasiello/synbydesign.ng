@@ -8,15 +8,15 @@ export default function routes($stateProvider) {
       controller: 'HomeController',
       controllerAs: 'home',
       resolve: {
-        aboutContent: function(AboutModel){
+        aboutContent: function (AboutModel) {
           'use strict';
 
           return AboutModel.load();
         },
-        portfolioContent: function($q, PortfolioModel, PortfolioHelperFns){
+        portfolioContent: function ($q, PortfolioModel, PortfolioHelperFns) {
           'use strict';
 
-          return PortfolioModel.load().then(function(list){
+          return PortfolioModel.load().then(function (list) {
             const deferred = $q.defer();
 
             deferred.resolve({
