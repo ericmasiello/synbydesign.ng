@@ -5,7 +5,6 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer-core');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-//var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = function makeWebpackConfig (options) {
   /**
@@ -84,8 +83,6 @@ module.exports = function makeWebpackConfig (options) {
    * This handles most of the magic responsible for converting modules
    */
 
-  console.log('** USING ANNOTATE LOADER')
-
   // Initialize module
   config.module = {
     preLoaders: [],
@@ -95,8 +92,8 @@ module.exports = function makeWebpackConfig (options) {
       // Transpile .js files using babel-loader
       // Compiles ES6 and ES7 into ES5 code
       test: /\.js$/,
-      loaders: ['ng-annotate', 'babel?optional=runtime'],
-      //exclude: /node_modules/
+      loader: 'babel?optional=runtime',
+      exclude: /node_modules/
     }, {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader
@@ -204,11 +201,11 @@ module.exports = function makeWebpackConfig (options) {
 
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#dedupeplugin
       // Dedupe modules in the output
-      new webpack.optimize.DedupePlugin()
+      new webpack.optimize.DedupePlugin(),
 
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
       // Minify all javascript, switch loaders to minimizing mode
-      //new webpack.optimize.UglifyJsPlugin()
+      new webpack.optimize.UglifyJsPlugin()
     )
   }
 
