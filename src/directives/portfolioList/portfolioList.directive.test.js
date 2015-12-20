@@ -47,6 +47,7 @@ describe('Directive: portfolio list', function () {
     scope.$digest();
     expect(element.find('li').length).toEqual(2);
     expect(element.isolateScope().portfolioList.portfolioItems.length).toEqual(2);
+    //FIXME add tests to assert the portfolio-item has the correct contents
   });
 
   it('should render a title', function() {
