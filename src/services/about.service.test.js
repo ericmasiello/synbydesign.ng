@@ -36,7 +36,7 @@ describe('Services: About Model', function () {
   });
 
   it('should load about content', function(){
-    "use strict";
+    'use strict';
 
     $httpBackend.expectGET(api);
     service.load();
