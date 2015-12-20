@@ -5,7 +5,7 @@ class PortfolioItemController {
   constructor() {
     'use strict';
 
-    if( typeof this.detail.alt_text != 'string' || this.detail.alt_text.length == 0 ){
+    if( this.detail && ( typeof this.detail.alt_text != 'string' || this.detail.alt_text.length == 0 ) ){
       this.detail.alt_text = this.detail.title;
     }
   }
@@ -18,7 +18,8 @@ function PortfolioItem() {
     bindToController: {
       detail: '=',
       classNames: '@',
-      detailView: '@'
+      detailView: '@',
+      imgClassNames: '@'
     },
     controllerAs: 'item',
     controller: PortfolioItemController,
@@ -29,10 +30,6 @@ function PortfolioItem() {
       }
 
       return require('./portfolioItem.html');
-    },
-    link: function(scope){
-      'use strict';
-      //debugger;
     }
   }
 }
