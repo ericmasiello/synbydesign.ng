@@ -12,7 +12,6 @@ describe('Services: About Model', function () {
   beforeEach(inject(function (_AboutModel_, _$httpBackend_) {
     service = _AboutModel_;
     $httpBackend = _$httpBackend_;
-    console.log('RESOLVE', api);
     authRequestHandler = $httpBackend.when('GET', api)
       .respond(
         {

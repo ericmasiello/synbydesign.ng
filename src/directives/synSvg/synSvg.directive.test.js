@@ -1,10 +1,10 @@
-import synSvg from './synSvg.directive.js';
+import directive from './synSvg.directive.js';
 
 describe('Directive: synSvg', function () {
   let $rootScope;
   let $compile;
 
-  beforeEach(angular.mock.module(synSvg));
+  beforeEach(angular.mock.module(directive));
 
   beforeEach(angular.mock.inject(function (_$compile_, _$rootScope_) {
     'use strict';
