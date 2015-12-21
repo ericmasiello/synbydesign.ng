@@ -36,12 +36,12 @@ describe('Directive: loading', function () {
     let element = $compile('<loading></loading>')(scope);
     scope.$digest();
 
-    $rootScope.$broadcast('app-is-loading');
+    $rootScope.$emit('app-is-loading');
     scope.$digest();
 
     expect(element.find('div').length).toEqual(1);
 
-    $rootScope.$broadcast('app-done-loading');
+    $rootScope.$emit('app-done-loading');
     scope.$digest();
 
     expect(element.find('div').length).toEqual(0);
