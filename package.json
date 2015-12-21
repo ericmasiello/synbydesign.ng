@@ -8,7 +8,7 @@
     "start": "node node_modules/.bin/webpack-dev-server --history-api-fallback --hot --inline --progress",
     "test": "karma start",
     "test:live": "karma start --auto-watch --no-single-run",
-    "lint": "./node_modules/.bin/eslint . --ext .js"
+    "lint": "./node_modules/.bin/eslint . --ext src/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "babel-runtime": "^5.5.8",
     "bootstrap": "^3.3.5",
     "css-loader": "^0.14.5",
-    "extract-image-props-from-html-string": "^0.2.2",
+    "extract-image-props-from-html-string": "^0.2.3",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
     "html-webpack-plugin": "1.5.2",
