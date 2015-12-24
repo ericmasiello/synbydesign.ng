@@ -21,7 +21,8 @@ describe('Directive: navigation', function () {
   it('should display all navigation items by default', function(){
     'use strict';
 
-    let element = $compile('<navigation></navigation>')(scope);
+    scope.theValue = true;
+    let element = $compile('<navigation show-nav="theValue"></navigation>')(scope);
     scope.$digest();
 
     expect(element.find('li').length).toBe(5);
@@ -31,7 +32,6 @@ describe('Directive: navigation', function () {
     'use strict';
 
     scope.theValue = false;
-
     let element = $compile('<navigation show-nav="theValue"></navigation>')(scope);
     scope.$digest();
 
@@ -41,7 +41,8 @@ describe('Directive: navigation', function () {
   it('should set the logo id', function(){
     'use strict';
 
-    let element = $compile('<navigation logo-id="the-logo-id"></navigation>')(scope);
+    scope.theValue = false;
+    let element = $compile('<navigation logo-id="the-logo-id" show-nav="theValue"></navigation>')(scope);
     scope.$digest();
 
     let logoAnchor = angular.element(element[0].getElementsByClassName('masthead__logo__title')).find('a');

@@ -21,7 +21,8 @@ describe('Directive: masthead', function () {
   it('should set the id of the masthead', function(){
     'use strict';
 
-    let element = $compile('<masthead masthead-id="the-id"></masthead>')(scope);
+    scope.theNavValue = true;
+    let element = $compile('<masthead masthead-id="the-id" show-nav="theNavValue"></masthead>')(scope);
     scope.$digest();
 
     expect(element.find('header').attr('id')).toEqual('the-id');
@@ -30,7 +31,8 @@ describe('Directive: masthead', function () {
   it('should set showNav to true by default', function(){
     'use strict';
 
-    let element = $compile('<masthead></masthead>')(scope);
+    scope.theNavValue = true;
+    let element = $compile('<masthead show-nav="theNavValue"></masthead>')(scope);
     scope.$digest();
 
     expect(element.isolateScope().masthead.showNav).toEqual(true);
