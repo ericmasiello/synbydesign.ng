@@ -20,17 +20,13 @@ class LoadingController {
 
 LoadingController.$inject = ['$rootScope'];
 
-function loading() {
-  return {
-    restrict: 'E',
-    scope: {},
-    bindToController: true,
-    template: require('./loading.html'),
-    controllerAs: 'loading',
-    controller: LoadingController
-  }
-}
+const loading = {
+  bindings: {},
+  template: require('./loading.html'),
+  controllerAs: 'loading',
+  controller: LoadingController
+};
 
 export default angular.module('directives.loading', [])
-  .directive('loading', loading)
+  .component('loading', loading)
   .name;

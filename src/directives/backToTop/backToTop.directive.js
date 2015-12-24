@@ -17,19 +17,13 @@ class BackToTopCtrl {
 
 BackToTopCtrl.$inject = ['$anchorScroll'];
 
-function backToTop(){
-  'use strict';
-
-  return {
-    restrict: 'E',
-    scope: {},
-    controller: BackToTopCtrl,
-    bindToController: true,
-    controllerAs: 'back',
-    template: require('./backToTop.html')
-  }
-}
+const backToTop = {
+  bindings: {},
+  controller: BackToTopCtrl,
+  controllerAs: 'back',
+  template: require('./backToTop.html')
+};
 
 export default angular.module('directives.backToTop', [])
-  .directive('backToTop', backToTop)
+  .component('backToTop', backToTop)
   .name;

@@ -7,20 +7,16 @@ export default class PortfolioListController {
   }
 }
 
-function PortfolioList() {
-  return {
-    restrict: 'E',
-    scope: {},
-    bindToController: {
-      title: '@',
-      portfolioItems: '='
-    },
-    controllerAs: 'portfolioList',
-    controller: PortfolioListController,
-    template: require('./portfolioList.html')
-  }
-}
+const portfolioList = {
+  bindings: {
+    title: '@',
+    portfolioItems: '='
+  },
+  controllerAs: 'portfolioList',
+  controller: PortfolioListController,
+  template: require('./portfolioList.html')
+};
 
 export default angular.module('directives.portfolioList', [PortfolioItem])
-  .directive('portfolioList', PortfolioList)
+  .component('portfolioList', portfolioList)
   .name;

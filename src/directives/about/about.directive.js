@@ -9,19 +9,15 @@ export default class AboutController {
 
 AboutController.$inject = ['$sce'];
 
-function about() {
-  return {
-    restrict: 'E',
-    scope: {},
-    bindToController: {
-      srcContent: '@'
-    },
-    template: require('./about.html'),
-    controllerAs: 'about',
-    controller: AboutController
-  }
-}
+const about = {
+  bindings: {
+    srcContent: '@'
+  },
+  template: require('./about.html'),
+  controllerAs: 'about',
+  controller: AboutController
+};
 
 export default angular.module('directives.about', [])
-  .directive('about', about)
+  .component('about', about)
   .name;
