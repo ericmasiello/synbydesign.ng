@@ -8,11 +8,15 @@ export default function routes($stateProvider) {
       controller: 'DetailController',
       controllerAs: 'detail',
       resolve: {
-        portfolioDetail: function($q, $stateParams, PortfolioModel){
-          'use strict';
-
-          return PortfolioModel.loadDetail(parseInt($stateParams.id));
-        }
+        portfolioDetail: portfolioItem
       }
     });
 }
+
+function portfolioItem($stateParams, PortfolioModel){
+  'use strict';
+
+  return PortfolioModel.loadDetail(parseInt($stateParams.id));
+}
+
+portfolioItem.$inject = ['$stateParams', 'PortfolioModel'];

@@ -26,6 +26,12 @@ function appRun($rootScope) {
 
       $rootScope.$emit('app-done-loading');
     });
+
+  $rootScope.$on('$stateChangeError',
+    function (event, toState, toParams, fromState, fromParams, error) {
+
+      console.log('State Change Error', error);
+    });
 };
 
 appRun.$inject = ['$rootScope'];

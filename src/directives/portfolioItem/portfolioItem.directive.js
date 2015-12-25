@@ -22,6 +22,8 @@ function templatePortfolioItem($element, $attrs){
   return require('./portfolioItem.html');
 }
 
+templatePortfolioItem.$inject = ['$element', '$attrs'];
+
 const portfolioItem = {
   bindings: {
     detail: '=',

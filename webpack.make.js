@@ -186,7 +186,12 @@ module.exports = function makeWebpackConfig (options) {
       new HtmlWebpackPlugin({
         template: './src/index.html',
         inject: 'body',
-        minify: BUILD
+        minify: {
+          removeComments: BUILD,
+          removeCommentsFromCDATA: BUILD,
+          collapseWhitespace: BUILD,
+          conservativeCollapse: BUILD
+        }
       })
     )
   }
@@ -194,7 +199,6 @@ module.exports = function makeWebpackConfig (options) {
   // Add build specific plugins
   if (BUILD) {
     config.plugins.push(
-
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
       // Only emit files when there are no errors
       new webpack.NoErrorsPlugin(),
