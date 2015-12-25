@@ -5,13 +5,12 @@ class NavigationCtrl {
   constructor($anchorScroll){
     'use strict';
     this.$anchorScroll = $anchorScroll;
-    this.showNav = this.showNav === false ? false : true;
+    this.showNav = ( typeof this.showNav !== 'boolean' ) ? true : this.showNav;
   }
   scrollTo(location, e){
     'use strict';
 
     e.preventDefault();
-
     this.$anchorScroll(location);
     document.getElementById(location).focus();
   }
@@ -19,20 +18,16 @@ class NavigationCtrl {
 
 NavigationCtrl.$inject = ['$anchorScroll'];
 
-function navigation() {
-  return {
-    scope: {},
-    bindToController: {
-      logoId: '@',
-      showNav: '='
-    },
-    controller: NavigationCtrl,
-    controllerAs: 'nav',
-    restrict: 'E',
-    template: require('./navigation.html')
-  }
-}
+const navigation = {
+  bindings: {
+    logoId: '@',
+    showNav: '=?'
+  },
+  controller: NavigationCtrl,
+  controllerAs: 'nav',
+  template: require('./navigation.html')
+};
 
 export default angular.module('directives.navigation', [logo])
-  .directive('navigation', navigation)
+  .component('navigation', navigation)
   .name;

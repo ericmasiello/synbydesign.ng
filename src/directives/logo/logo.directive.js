@@ -6,19 +6,15 @@ class LogoCtrl {
   }
 }
 
-function logo() {
-  return {
-    scope: {},
-    bindToController: {
-      logoId: '@'
-    },
-    controller: LogoCtrl,
-    controllerAs: 'logo',
-    restrict: 'E',
-    template: require('./logo.html')
-  }
-}
+const logo = {
+  bindings: {
+    logoId: '@'
+  },
+  controller: LogoCtrl,
+  controllerAs: 'logo',
+  template: require('./logo.html')
+};
 
 export default angular.module('directives.logo', [])
-  .directive('logo', logo)
+  .component('logo', logo)
   .name;

@@ -2,26 +2,23 @@ import angular from 'angular';
 import navigation from '../navigation/navigation.directive.js';
 
 class MastheadCtrl {
-  constructor(){
+  constructor() {
     'use strict';
+    this.showNav = ( typeof this.showNav !== 'boolean' ) ? true : this.showNav;
   }
 }
 
-function masthead() {
-  return {
-    restrict: 'E',
-    scope: {},
-    bindToController: {
-      mastheadId: '@',
-      logoId: '@',
-      showNav: '='
-    },
-    controller: MastheadCtrl,
-    controllerAs: 'masthead',
-    template: require('./masthead.html')
-  }
-}
+const masthead = {
+  bindings: {
+    mastheadId: '@',
+    logoId: '@',
+    showNav: '=?'
+  },
+  controller: MastheadCtrl,
+  controllerAs: 'masthead',
+  template: require('./masthead.html')
+};
 
 export default angular.module('directives.masthead', [navigation])
-  .directive('masthead', masthead)
+  .component('masthead', masthead)
   .name;
