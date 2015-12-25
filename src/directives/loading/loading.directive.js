@@ -4,33 +4,29 @@ class LoadingController {
   constructor($rootScope) {
     'use strict';
 
-    $rootScope.$on('app-is-loading', function(){
+    let self = this;
 
-      this.isLoading = true;
+    $rootScope.$on('app-is-loading', function appIsLoading(){
 
-    }.bind(this));
+      self.isLoading = true;
+    });
 
-    $rootScope.$on('app-done-loading', function(){
+    $rootScope.$on('app-done-loading', function appDoneLoading(){
 
-      this.isLoading = false;
-
-    }.bind(this));
+      self.isLoading = false;
+    });
   }
 }
 
 LoadingController.$inject = ['$rootScope'];
 
-function loading() {
-  return {
-    restrict: 'E',
-    scope: {},
-    bindToController: true,
-    template: require('./loading.html'),
-    controllerAs: 'loading',
-    controller: LoadingController
-  }
-}
+const loading = {
+  bindings: {},
+  template: require('./loading.html'),
+  controllerAs: 'loading',
+  controller: LoadingController
+};
 
 export default angular.module('directives.loading', [])
-  .directive('loading', loading)
+  .component('loading', loading)
   .name;

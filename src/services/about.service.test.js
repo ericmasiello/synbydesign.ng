@@ -1,43 +1,46 @@
-//import aboutServices from './about.service.js'
-//
-//describe('Services: About Model', function () {
-//  let service;
-//  let httpBackend;
-//  let authRequestHandler;
-//
-//  beforeEach(angular.mock.module(aboutServices));
-//
-//  beforeEach(function() {
-//
-//    //module()
-//
-//    module(function($provide) {
-//      $provide.constant('routesPaths', {
-//      });
-//    });
-//
-//  });
-//
-//  beforeEach(inject(function (_AboutModel_, $httpBackend) {
-//    service = _AboutModel_;
-//    httpBackend = $httpBackend;
-//
-//    authRequestHandler = $httpBackend.when('GET', '/auth.py')
-//      .respond({userId: 'userX'}, {'A-Token': 'xxx'});
-//
-//  }));
-//
-//  afterEach(()=>{
-//    'use strict';
-//    service = undefined;
-//    httpBackend = undefined;
-//  });
-//
-//  it('should set properties', function () {
-//
-//    expect(service.model).toBeDefined();
-//    expect(service.$http).toBeDefined();
-//    expect(service.$q).toBeDefined();
-//    expect(service.routePaths).toBeDefined();
-//  });
-//});
+import aboutServices from './about.service.js';
+import appConsts from '../consts/appConsts';
+
+describe('Services: About Model', function () {
+  let service;
+  let $httpBackend;
+  let authRequestHandler;
+  let api = `${appConsts.SERVER}/pages/about`;
+
+  beforeEach(angular.mock.module(aboutServices));
+
+  beforeEach(inject(function (_AboutModel_, _$httpBackend_) {
+    service = _AboutModel_;
+    $httpBackend = _$httpBackend_;
+    authRequestHandler = $httpBackend.when('GET', api)
+      .respond(
+        {
+          content: 'Hello world'
+        }
+      );
+  }));
+
+  afterEach(()=>{
+    'use strict';
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+    service = undefined;
+    $httpBackend = undefined;
+  });
+
+  it('should set properties', function () {
+
+    expect(service.model).toBeDefined();
+    expect(service.$http).toBeDefined();
+    expect(service.$q).toBeDefined();
+  });
+
+  it('should load about content', function(){
+    'use strict';
+
+    $httpBackend.expectGET(api);
+    service.load();
+    $httpBackend.flush();
+    expect(service.model.content).toBe('Hello world');
+  });
+});

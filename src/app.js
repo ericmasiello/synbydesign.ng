@@ -1,7 +1,7 @@
 import 'synbydesign.design/src/styles/main.scss';
 
 import angular from 'angular';
-import uirouter from 'angular-ui-router';
+import uiRouter from 'angular-ui-router';
 
 import routing from './app.config';
 import home from './features/home';
@@ -12,26 +12,30 @@ import backToTop from './directives/backToTop/backToTop.directive';
 import synSvg from './directives/synSvg/synSvg.directive';
 
 
-function appRun($rootScope){
+function appRun($rootScope) {
   'use strict';
 
   $rootScope
-    .$on('$stateChangeStart',
-    function(event, toState, toParams, fromState, fromParams){
+    .$on('$stateChangeStart', function stateChangeStart() {
 
       $rootScope.$emit('app-is-loading');
     });
 
   $rootScope
-    .$on('$stateChangeSuccess',
-    function(event, toState, toParams, fromState, fromParams){
+    .$on('$stateChangeSuccess', function stateChangeSuccess() {
 
       $rootScope.$emit('app-done-loading');
+    });
+
+  $rootScope.$on('$stateChangeError',
+    function (event, toState, toParams, fromState, fromParams, error) {
+
+      console.log('State Change Error', error);
     });
 };
 
 appRun.$inject = ['$rootScope'];
 
-angular.module('app', [uirouter, home, detail, masthead, ariaLoadingState, backToTop, synSvg])
+angular.module('app', [uiRouter, home, detail, masthead, ariaLoadingState, backToTop, synSvg])
   .config(routing)
   .run(appRun);
