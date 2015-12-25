@@ -3,8 +3,8 @@ import uirouter from 'angular-ui-router';
 
 import routing from './home.routes';
 import HomeController from './home.controller';
-import aboutService from '../../services/about.service.js';
-import portfolioService from '../../services/portfolio.service.js';
+import aboutService from '../../services/about/about.index';
+import portfolioService from '../../services/portfolio/portfolio.index';
 import aboutDirective       from '../../directives/about/about.directive';
 import portfolioListDirective  from '../../directives/portfolioList/portfolioList.directive';
 import loading from '../../directives/loading/loading.directive.js';

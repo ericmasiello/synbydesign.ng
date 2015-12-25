@@ -12,9 +12,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Foxandxss/angular-webpack-workflow.git"
+    "url": "https://github.com/ericmasiello/synbydesign.ng.git"
   },
-  "author": "Jesus Rodriguez",
+  "author": "Eric Masiello",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Foxandxss/angular-webpack-workflow/issues"
