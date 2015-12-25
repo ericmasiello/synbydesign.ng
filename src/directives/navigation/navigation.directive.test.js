@@ -21,8 +21,7 @@ describe('Directive: navigation', function () {
   it('should display all navigation items by default', function(){
     'use strict';
 
-    scope.theValue = true;
-    let element = $compile('<navigation show-nav="theValue"></navigation>')(scope);
+    let element = $compile('<navigation></navigation>')(scope);
     scope.$digest();
 
     expect(element.find('li').length).toBe(5);

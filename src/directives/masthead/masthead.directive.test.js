@@ -31,8 +31,7 @@ describe('Directive: masthead', function () {
   it('should set showNav to true by default', function(){
     'use strict';
 
-    scope.theNavValue = true;
-    let element = $compile('<masthead show-nav="theNavValue"></masthead>')(scope);
+    let element = $compile('<masthead></masthead>')(scope);
     scope.$digest();
 
     expect(element.isolateScope().masthead.showNav).toEqual(true);

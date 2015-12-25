@@ -5,12 +5,12 @@ class NavigationCtrl {
   constructor($anchorScroll){
     'use strict';
     this.$anchorScroll = $anchorScroll;
+    this.showNav = ( typeof this.showNav !== 'boolean' ) ? true : this.showNav;
   }
   scrollTo(location, e){
     'use strict';
 
     e.preventDefault();
-
     this.$anchorScroll(location);
     document.getElementById(location).focus();
   }
@@ -21,7 +21,7 @@ NavigationCtrl.$inject = ['$anchorScroll'];
 const navigation = {
   bindings: {
     logoId: '@',
-    showNav: '='
+    showNav: '=?'
   },
   controller: NavigationCtrl,
   controllerAs: 'nav',
