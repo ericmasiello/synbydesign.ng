@@ -1,7 +1,7 @@
 import angular from 'angular';
-import appConsts from '../consts/appConsts';
+import appConsts from '../../consts/appConsts';
 
-class AboutModel {
+export default class AboutModel {
   constructor($http, $q) {
     this.model = {};
     this.$http = $http;
@@ -19,9 +19,5 @@ class AboutModel {
     return deferred.promise;
   }
 }
-
-export default angular.module('services.about', [])
-  .service('AboutModel', AboutModel)
-  .name;
 
 AboutModel.$inject = ['$http', '$q'];

@@ -1,4 +1,6 @@
-import portfolioServices from './portfolio.service.js'
+/*global angular:false, inject:false*/
+
+import portfolioServices from './portfolio.index';
 
 describe('Services: Portfolio Model', function () {
   let PortfolioHelperFns;

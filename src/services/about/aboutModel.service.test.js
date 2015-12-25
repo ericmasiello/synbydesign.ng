@@ -1,10 +1,11 @@
-import aboutServices from './about.service.js';
-import appConsts from '../consts/appConsts';
+/*global angular:false, inject:false*/
+
+import aboutServices from './about.index';
+import appConsts from '../../consts/appConsts';
 
 describe('Services: About Model', function () {
   let service;
   let $httpBackend;
-  let authRequestHandler;
   let api = `${appConsts.SERVER}/pages/about`;
 
   beforeEach(angular.mock.module(aboutServices));
@@ -12,7 +13,7 @@ describe('Services: About Model', function () {
   beforeEach(inject(function (_AboutModel_, _$httpBackend_) {
     service = _AboutModel_;
     $httpBackend = _$httpBackend_;
-    authRequestHandler = $httpBackend.when('GET', api)
+    $httpBackend.when('GET', api)
       .respond(
         {
           content: 'Hello world'
